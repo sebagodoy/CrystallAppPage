@@ -1,0 +1,144 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CAp:Surfs</title>
+	<link href="{% static '/css/main.css'  %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-body h-100" id="profile-wrapper">
+					<img id="profile-pic" src="{% static 'images/Logo_surf.png' %}" >
+					<hr>
+					<h4>Crystall App!</h4>
+					<strong>Surface builder</strong>
+					<p><small><small>Helping to construct your molecular models</small></small></p>
+					<a href="/" id="div-link2">Home</a>
+				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="card card-body h-100">
+					<h4>Periodic surface models</h4>
+					<hr>
+					<p>Manually defining a basis cell</p>
+					<p>To define a periodic supercell, first define the basis supercell in the orientation of the
+					desired supercell.</p>
+
+					<form method="post" action="">
+						{% csrf_token %}
+						<table>
+							<tr><td><strong>Basis cell</strong></td></tr>
+							<tr><td>Base vectors : </td><td>{{form.BaseVectors}}</td>
+								<td>Base angles : </td><td>{{form.BaseAngles}}</td></tr>
+							<tr><td>Atoms in base</td><td colspan="3">{{form.AtomCoords}}</td></tr>
+<!--							Supercell definition-->
+							<tr><td colspan="2"><strong>Supercell parameters</strong></td></tr>
+							<tr><td>Name : </td><td>{{form.name}}</td></tr>
+							<tr><td>Layers : </td><td>{{form.NumberLayers}}</td>
+								<td>Added vacuum (A) : </td><td>{{form.AddedVacuum}}</td>
+							</tr>
+							<tr><td>Max. Isotropy : </td><td>{{form.ExploreIsotMax}}</td>
+								<td>Make it orthogonal (Z)</td><td>{{form.FixZbool}}</td>
+							</tr>
+<!--							Single supercell-->
+							<tr><td colspan="4"><hr></td></tr>
+							<tr><td colspan="3"><strong>Single cell by units</strong></td></tr>
+							<tr><td>Units in surface</td><td>{{form.UnitsInSurface}}</td></tr>
+							<tr><td></td>
+								<td>
+									<button class="form-submit" name="SingleSuperCell" style="width: 150px">
+										Generate model
+									</button>
+								</td>
+							<!--	Show results-->
+							{% if not ShowResultSingle == False %}
+								<td>Download geometry</td>
+									<td><button type="submit" name="POSCARfileSingle" style="width: 100px">POSCAR</button>
+<!--									<button type="submit" name="XYZfileSingle	" style="width: 50px">XYZ</button>-->
+									</td>
+							</tr>
+							<tr>
+								<td colspan="4"> A cell was created, now you can download it. <br>
+									If you don't like it try the option "Exploration ranges" below using +/- this
+									number of cells and check the list downloadable list for all the in the part
+									"#### All supercells combinations". Select a supercell putting attention to the
+									columns about the angle, area and if the cell is isotropic. Use the section
+									"Generate supercell by base vectors" below with the vectors in columns "Vector A"
+									and "Vector B" to generate the selected supercell.</td>
+							{% endif %}
+							</tr>
+<!--							Generate supercell by base vectors-->
+							<tr><td colspan="4"><hr></td></tr>
+							<tr><td colspan="3"><strong>Generate supercell by base vectors</strong></td></tr>
+							<tr><td>Base vectors</td><td>{{form.GenSurfA}}</td>
+								<td>{{form.GenSurfB}}</td>
+							</tr>
+							<tr><td></td>
+								<td>
+									<button class="form-submit" name="GenerateSuperCellVectors" style="width: 150px">
+										Generate model
+									</button>
+								</td>
+							<!--	Show results-->
+							{% if not ShowResultVectors == False %}
+								<td>Download geometry</td>
+									<td><button type="submit" name="POSCARfileVectors" style="width: 100px">POSCAR</button>
+									<button type="submit" name="XYZfileVectors" style="width: 50px">XYZ</button>
+									</td>
+							{% endif %}
+							</tr>
+							{% if not ShowResultVectors == False %}
+							<tr>
+								<td colspan="4"> <p>The resulting supercell contains {{GenSurfaceNumAtoms}} atoms
+								and an area of {{GenSurfaceArea}} A2.</p>
+								</td></tr>
+							{% endif %}
+
+<!--							Supercell exploration-->
+							<tr><td colspan="4"><hr></td></tr>
+							<tr><td colspan="2"><strong>Exploration ranges</strong> (min max, separated by space)</td></tr>
+							<tr><td>Range of units</td><td>{{form.ExploreUnits}}</td>
+								<td>Range of angles</td><td>{{form.ExploreAngles}}</td></tr>
+							<tr><td></td>
+								<td>
+									<button class="form-submit" name="SuperCellList" style="width: 150px">
+										Generate list
+									</button>
+								</td>
+								{% if not ShowResultList == False %}
+									<td colspan="2">
+										<button type="submit" name="SuperCellListDownload" style="width: 200px">
+											Download list
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="4"> A list of parameters to construct supercells of
+										different sizes and shapes containing between X and Y base
+										units has been found. List has {{ListElementsNumber}} elements.</td>
+								{% endif %}
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		<div class="row">
+			<p align="right">Today is {{date}}. Site created using DJango. Github proyect here. Contact us at here.</p>
+		</div>
+	</div>
+
+
+</body>
+</html>

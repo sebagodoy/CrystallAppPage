@@ -1,0 +1,49 @@
+body{
+	background-color:#dedcdd!important;
+}
+
+tr.spaceUnder>td {
+  padding-bottom: 1em;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+#profile-wrapper{
+	text-align: center;
+}
+
+#profile-pic{
+	width:150px;
+	height: 150px;
+	border-radius: 5%;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+#div-link1:hover{
+    background-color:#a7f7f2;
+}
+
+#p { margin:0 }
+
+#a:hover{
+  text-decoration: none;
+  color:#fed47f;
+}
+
+#div-link2:hover{
+    background-color:#b5f7a7;
+    text-decoration: none;
+}
+
+#div-link-home:hover{
+    background-color:#fed47f;
+    text-decoration: none;
+}
+
+
+ul{
+	padding: 0;
+    list-style-type: none;
+}
+

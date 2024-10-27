@@ -1,0 +1,16 @@
+This is the CrystallApp project repository
+27.Oct.2024
+
+This is the django framework for an application that helps to construct
+molecular models of surfaces and nanoparticles of various sizes and
+morphologies. From user input, a list of atomic types and coordinates
+(also cell size/shape information, if necesary) is generated for download
+in XYZ and POSCAR format text-files.
+
+This project is still in its first stages and some parameter combinations
+may not work. These bugs are being fixed and new functions are expected to
+be added in the future. Thanks for lurking.
+
+Main contributors:
+- Sebastian Godoy-Gutierrez (sebadgogu.at.gmail.com)
+- Anthony Ropp

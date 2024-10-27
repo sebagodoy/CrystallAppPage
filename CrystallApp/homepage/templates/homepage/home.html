@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crystal App</title>
+	<link href="{% static '/css/main.css'  %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+</head>
+<body>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-body h-100" id="profile-wrapper">
+					<img id="profile-pic" src="{% static 'images/Logo_big.jpg' %}" >
+					<hr>
+					<h4>Crystall App!</h4>
+					<p><small><small>Helping to construct your molecular models</small></small></p>
+				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="card card-body h-100">
+					<h4>Molecular models for periodic surfaces and nanoparticles</h4>
+					<hr>
+					<p>The first step to set up a molecular simulation is to carefully define your system. At the DFT
+						some of the most used models intend to represent heterogeneous systems of small isolated
+						nanoparticles or a section of an extended surface to be computed under periodic boundary
+						conditions.
+						</p>
+					<p>This app was created to aid the set up of molecular simulations by providing molecular models
+					(atomic and cell coordinates) of these kinds of systems.</p>
+
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-4">
+			<a href="SurfsManualCell">
+				<div class="card card-body h-100 border-info" id="div-link1">
+					<h5>Extended surface models</h5>
+					<hr>
+					<p>Molecular models of extended for sections of surfaces under to  be computed under periodic
+						boundary conditions.</p>
+				</div>
+			</a>
+			</div>
+
+			<div class="col-md-8">
+				<div class="card card-body h-100  border-info">
+					<h5>Nanoparticle models</h5>
+					<hr>
+					<p>Molecular models of commonly proposed nanoparticle morphologies such as: Ino-decahedron,
+						Decahedron and Marks decahedron.</p>
+<!--				<a href="NPsHome"><p id="div-link2">NPs : home</p></a>-->
+				<a href="NPsDeca"><p id="div-link2"	>Decahedron</p></a>
+				<a href="NPsIno"><p id="div-link2"	>Ino-decahedron</p></a>
+				<a href="NPsMarks"><p id="div-link2"	>Marks-decahedron</p></a>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<p>Today is {{date}}. Site created usin DJango. Github proyect here. Contact us at here.</p>
+		</div>
+	</div>
+
+
+</body>
+</html>

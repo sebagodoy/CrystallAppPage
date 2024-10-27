@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crystal App</title>
+	<link href="{% static '/css/main.css'  %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+</head>
+<body>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card card-body h-100" id="profile-wrapper">
+					<img id="profile-pic" src="{% static 'images/Logo_big.jpg' %}" >
+					<hr>
+					<h4>Crystall App!</h4>
+					<p><small><small>Helping to construct your molecular models</small></small></p>
+					<a href="/" id="div-link2">Home</a>
+				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="card card-body h-100">
+					<h4>Molecular models for periodic surfaces and nanoparticles</h4>
+					<hr>
+					<p>This app was created to aid the set up of molecular simulations by providing molecular models
+					(atomic and cell coordinates) of these kinds of systems.</p>
+					<p>But not always works well.</p>
+					<p>Like ... just now</p>
+					<p>I know. Sorry, my bad!.</p>
+
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<p>Today is {{date}}. Site created usin DJango. Github proyect here. Contact us at here.</p>
+		</div>
+	</div>
+
+
+</body>
+</html>
